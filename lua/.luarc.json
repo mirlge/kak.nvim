@@ -1,0 +1,8 @@
+{
+    "workspace.library": [
+        "/Users/mirge/.local/share/nvim/lazy/neodev.nvim/types/stable",
+        "/usr/local/Cellar/neovim/0.9.2/share/nvim/runtime/lua",
+        "/Users/mirge/Documents/git/Codeberg/mirge/kak.nvim/lua",
+        "${3rd}/luv/library"
+    ]
+}
