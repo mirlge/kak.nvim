@@ -17,6 +17,7 @@ for _, key in ipairs(word_fFtT) do
   vim.keymap.set({ "n", "x" }, key, "<esc>v" .. key)
 end
 
-vim.keymap.set({ "n", "x" }, "d", "V")
+vim.keymap.set({ "n" }, "d", "vd")
+vim.keymap.set({ "n", "x" }, "x", "V")
 vim.keymap.set({ "n" }, "c", "vc")
 --vim.keymap.set({ "n", "x" }, "%", "gg<esc>VG")
