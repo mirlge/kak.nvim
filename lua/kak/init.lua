@@ -1,9 +1,9 @@
 local M = {}
 
 function M.setup(opts)
-  local _ = opts or {}
+  local opts = opts or {}
 
-  require("kak.keybinds")
+  require("kak.keybinds").setup(opts)
 end
 
 return M
