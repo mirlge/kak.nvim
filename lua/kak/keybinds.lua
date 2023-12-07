@@ -24,9 +24,10 @@ function M.setup(opts)
     end
   end
 
-  vim.keymap.set({ "n" }, "d", "vd")
+  for _, key in ipairs({ "d", "c", "y" }) do
+    vim.keymap.set({ "n" }, key, "v" .. key)
+  end
   vim.keymap.set({ "n", "x" }, "x", "V")
-  vim.keymap.set({ "n" }, "c", "vc")
   --vim.keymap.set({ "n", "x" }, "%", "gg<esc>VG")
 end
 
