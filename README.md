@@ -12,7 +12,7 @@ Changes keybinds in Neovim to use the Kakoune workflow
 {
   "mirlge/kak.nvim",
   opts = {
-    -- your configuration here (no configuration available yet)
+    -- your configuration here
   },
 }
 ```
@@ -24,7 +24,7 @@ Changes keybinds in Neovim to use the Kakoune workflow
   "kak.nvim",
   url = "https://codeberg.org/mirge/kak.nvim.git",
   opts = {
-    -- your configuration here (no configuration available yet)
+    -- your configuration here
   },
 }
 ```
@@ -34,8 +34,16 @@ Changes keybinds in Neovim to use the Kakoune workflow
 ```lua
 -- you don't have to pass in the table to the setup function
 require("kak").setup({
-  -- your configuration here (no configuration available yet)
+  -- your configuration here
 })
+```
+
+## Default options
+
+```lua
+{
+  disable_full = false, -- disables most keybinds, except for Normal mode c, d, x and y keybinds
+}
 ```
 
 ## Usage
