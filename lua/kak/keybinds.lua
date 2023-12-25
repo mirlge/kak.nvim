@@ -4,30 +4,31 @@ function M.setup(opts)
   local opts = opts or {}
 
   if not opts.disable_full then
-    local movement_ai = { "h", "j", "k", "l", "i", "a" }
-    local word = { "w", "e", "b", "W", "E", "B", "ge", "gE" }
-    local fFtT = { "f", "F", "t", "T" }
+    local movement = { "h", "j", "k", "l" }
+    local word = { "w", "e", "b" }
+    local ft = { "f", "t" }
     local around_inside = { "a", "i" }
 
-    for _, keytbl in ipairs({ movement_ai, word }) do
-      for _, key in ipairs(keytbl) do
-        vim.keymap.set("x", "<A-" .. key .. ">", function()
-          vim.cmd("norm! " .. key)
-        end)
-      end
+    for _, key in ipairs(vim.tbl_deep_extend(movement, word)) do
+      local upper_key = string.upper(key)
+
+      vim.keymap.set("x", upper_key, function()
+        vim.cmd("norm! " .. key)
+      end)
     end
 
-    for _, key in ipairs(movement_ai) do
+    for _, key in ipairs(vim.tbl_deep_extend(movement, around_inside)) do
+      local upper_key = string.upper(key)
+
       vim.keymap.set("x", key, "<esc>" .. key)
-      vim.keymap.set("n", "<A-" .. key .. ">", function()
+      vim.keymap.set("n", upper_key, function()
         vim.cmd("norm! v" .. key)
       end)
     end
 
-    for _, keystbl in ipairs({ word, fFtT }) do
-      for _, key in ipairs(keystbl) do
-        vim.keymap.set({ "n", "x" }, key, "<esc>v" .. key)
-      end
+    for _, key in ipairs(vim.tbl_deep_extend(word, ft)) do
+      vim.keymap.set("n", key, "v" .. key)
+      vim.keymap.set("x", key, "<esc>v" .. key)
     end
 
     for _, key in ipairs(around_inside) do
@@ -38,8 +39,10 @@ function M.setup(opts)
         vim.cmd("norm! " .. key .. vim.fn.input("v" .. key))
       end)
     end
-    for _, key in ipairs(fFtT) do
-      vim.keymap.set("x", "<A-" .. key .. ">", function()
+    for _, key in ipairs(ft) do
+      local upper_key = string.upper(key)
+
+      vim.keymap.set("x", upper_key, function()
         vim.cmd("norm! " .. key .. vim.fn.input("v" .. key))
       end)
     end
