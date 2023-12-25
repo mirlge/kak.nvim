@@ -163,6 +163,15 @@ function M.setup(opts)
         vim.cmd("norm! " .. count .. key .. char)
       end)
     end
+
+    vim.keymap.set({ "n", "v" }, "<A-j>", function()
+      local count = vim.v.count
+      if count < 1 then
+        count = 1
+      end
+
+      vim.cmd("norm! " .. count .. "j")
+    end, { desc = "Join lines" })
   end
 
   for _, key in ipairs({ "d", "c", "y" }) do
