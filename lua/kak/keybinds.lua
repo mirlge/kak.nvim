@@ -28,10 +28,29 @@ function M.setup(opts)
       end)
     end
 
-    for _, key in ipairs(vim.list_extend(movement, around_inside)) do
+    for _, key in ipairs(movement) do
       local upper_key = string.upper(key)
 
       vim.keymap.set("x", key, function()
+        local count = vim.v.count
+        if count < 1 then
+          count = 1
+        end
+
+        vim.cmd("norm! " .. vim.keycode("<Esc>") .. count .. key)
+      end)
+      vim.keymap.set("n", upper_key, function()
+        local count = vim.v.count
+        if count < 1 then
+          count = 1
+        end
+
+        vim.cmd("norm! v" .. count .. key)
+      end)
+    end
+
+    for _, key in ipairs(word) do
+      vim.keymap.set("n", key, function()
         local count = vim.v.count
         if count < 1 then
           count = 1
@@ -40,24 +59,8 @@ function M.setup(opts)
         if pre_count == "0" .. key then
           pre_count = ""
         end
-        vim.cmd.norm(vim.keycode("<Esc>") .. pre_count .. "v" .. key)
-      end)
-      vim.keymap.set("n", upper_key, function()
-        local count = vim.v.count
-        if count < 1 then
-          count = 1
-        end
-        vim.cmd("norm! v" .. count .. key)
-      end)
-    end
 
-    for _, key in ipairs(vim.list_extend(word, ft)) do
-      vim.keymap.set("n", key, function()
-        local count = vim.v.count
-        if count < 1 then
-          count = 1
-        end
-        vim.cmd.norm("v" .. count .. key)
+        vim.cmd("norm! " .. pre_count .. "v" .. key)
       end)
       vim.keymap.set("x", key, function()
         local count = vim.v.count
@@ -70,6 +73,31 @@ function M.setup(opts)
         end
         vim.cmd("norm! " .. vim.keycode("<Esc>") .. pre_count .. "v" .. key)
       end)
+
+      local wrapped_key = "<A-" .. key .. ">"
+      local upper_key = string.upper(key)
+      vim.keymap.set("n", wrapped_key, function()
+        local count = vim.v.count
+        if count < 1 then
+          count = 1
+        end
+        local pre_count = "" .. count - 1 .. upper_key
+        if pre_count == "0" .. upper_key then
+          pre_count = ""
+        end
+        vim.cmd("norm! " .. pre_count .. "v" .. upper_key)
+      end)
+      vim.keymap.set("x", wrapped_key, function()
+        local count = vim.v.count
+        if count < 1 then
+          count = 1
+        end
+        local pre_count = "" .. count - 1 .. upper_key
+        if pre_count == "0" .. upper_key then
+          pre_count = ""
+        end
+        vim.cmd("norm! " .. vim.keycode("<Esc>") .. pre_count .. "v" .. upper_key)
+      end)
     end
 
     for _, key in ipairs(around_inside) do
@@ -79,16 +107,60 @@ function M.setup(opts)
       vim.keymap.set("x", "<A-" .. key .. ">", function()
         vim.cmd("norm! " .. key .. vim.fn.input("v" .. key))
       end)
+
+      vim.keymap.set("x", key, "<Esc>" .. key)
     end
     for _, key in ipairs(ft) do
-      local upper_key = string.upper(key)
+      vim.keymap.set("n", key, function()
+        local char = vim.fn.input(key)
 
-      vim.keymap.set("x", upper_key, function()
         local count = vim.v.count
         if count < 1 then
           count = 1
         end
-        vim.cmd("norm! " .. count .. key .. vim.fn.input("v" .. key))
+        local pre_count = "" .. count - 1 .. key .. char
+        if pre_count == "0" .. key .. char then
+          pre_count = ""
+        end
+
+        vim.cmd("norm! " .. pre_count .. "v" .. key .. char)
+      end)
+      vim.keymap.set("x", key, function()
+        local char = vim.fn.input(key)
+
+        local count = vim.v.count
+        if count < 1 then
+          count = 1
+        end
+        local pre_count = "" .. count - 1 .. key .. char
+        if pre_count == "0" .. key .. char then
+          pre_count = ""
+        end
+
+        vim.cmd("norm! " .. vim.keycode("<Esc>") .. pre_count .. "v" .. key .. char)
+      end)
+
+      local upper_key = string.upper(key)
+
+      vim.keymap.set("n", upper_key, function()
+        local char = vim.fn.input(key)
+
+        local count = vim.v.count
+        if count < 1 then
+          count = 1
+        end
+
+        vim.cmd("norm! v" .. count .. key .. char)
+      end)
+      vim.keymap.set("x", upper_key, function()
+        local char = vim.fn.input(key)
+
+        local count = vim.v.count
+        if count < 1 then
+          count = 1
+        end
+
+        vim.cmd("norm! " .. count .. key .. char)
       end)
     end
   end
