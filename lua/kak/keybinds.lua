@@ -101,11 +101,12 @@ function M.setup(opts)
     end
 
     for _, key in ipairs(around_inside) do
-      vim.keymap.set("n", "<A-" .. key .. ">", function()
-        vim.cmd("norm! v" .. key .. vim.fn.input("v" .. key))
+      local key_wrapped = "<A-" .. key .. ">"
+      vim.keymap.set("n", key_wrapped, function()
+        vim.cmd("norm! v" .. key .. vim.fn.input(key_wrapped))
       end)
-      vim.keymap.set("x", "<A-" .. key .. ">", function()
-        vim.cmd("norm! " .. key .. vim.fn.input("v" .. key))
+      vim.keymap.set("x", key_wrapped, function()
+        vim.cmd("norm! " .. key .. vim.fn.input(key_wrapped))
       end)
 
       vim.keymap.set("x", key, "<Esc>" .. key)
@@ -161,6 +162,28 @@ function M.setup(opts)
         end
 
         vim.cmd("norm! " .. count .. key .. char)
+      end)
+
+      local key_wrapped = "<A-" .. key .. ">"
+      vim.keymap.set("n", key_wrapped, function()
+        local char = vim.fn.input(key_wrapped)
+
+        local count = vim.v.count
+        if count < 1 then
+          count = 1
+        end
+
+        vim.cmd("norm! v" .. count .. upper_key .. char)
+      end)
+      vim.keymap.set("x", key_wrapped, function()
+        local char = vim.fn.input(key_wrapped)
+
+        local count = vim.v.count
+        if count < 1 then
+          count = 1
+        end
+
+        vim.cmd("norm! " .. count .. upper_key .. char)
       end)
     end
 
