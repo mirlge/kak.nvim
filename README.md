@@ -52,4 +52,4 @@ require("kak").setup({
 
 ### Keybinds
 
-*To be written*
+It's a mix of Neovim's and Kakoune's keybinds, see the code for them
