@@ -11,6 +11,7 @@ Changes keybinds in Neovim to use the Kakoune workflow
 ```lua
 {
   "mirlge/kak.nvim",
+  event = "VeryLazy", -- load after other plugins, to avoid conflicts
   opts = {
     -- your configuration here
   },
@@ -23,6 +24,7 @@ Changes keybinds in Neovim to use the Kakoune workflow
 {
   "kak.nvim",
   url = "https://codeberg.org/mirge/kak.nvim.git",
+  event = "VeryLazy", -- load after other plugins, to avoid conflicts
   opts = {
     -- your configuration here
   },
