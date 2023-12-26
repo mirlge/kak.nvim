@@ -106,7 +106,7 @@ function M.setup(opts)
         vim.cmd("norm! v" .. key .. vim.fn.input(key_wrapped))
       end)
       vim.keymap.set("x", key_wrapped, function()
-        vim.cmd("norm! " .. key .. vim.fn.input(key_wrapped))
+        vim.cmd("norm! " .. vim.keycode("<Esc>") .. "v" .. key .. vim.fn.input(key_wrapped))
       end)
 
       vim.keymap.set("x", key, "<Esc>" .. key)
