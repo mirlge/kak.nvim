@@ -50,6 +50,15 @@ require("kak").setup({
 }
 ```
 
+### `full` as a table
+
+```lua
+{
+  enabled = true, -- same as `full = true` in the top level options
+  visual_only = false, -- makes it be in Visual mode by default
+}
+```
+
 ## Usage
 
 ### Keybinds

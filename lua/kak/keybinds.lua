@@ -2,8 +2,9 @@ local M = {}
 
 function M.setup(opts)
   local opts = opts or {}
+  local visual_only = type(opts.full) == "table" and opts.full.visual_only
 
-  if opts.full == true then
+  if opts.full == true or opts.full.enabled then
     local movement = { "h", "j", "k", "l" }
     local word = { "w", "e", "b" }
     local ft = { "f", "t" }
@@ -47,6 +48,25 @@ function M.setup(opts)
 
         vim.cmd("norm! v" .. count .. key)
       end)
+
+      if visual_only then
+        vim.keymap.set("x", key, function()
+          local count = vim.v.count
+          if count < 1 then
+            count = 1
+          end
+
+          vim.cmd("norm! " .. vim.keycode("<Esc>") .. count .. key .. "v")
+        end)
+        vim.keymap.set("n", key, function()
+          local count = vim.v.count
+          if count < 1 then
+            count = 1
+          end
+
+          vim.cmd("norm! " .. count .. key .. "v")
+        end)
+      end
     end
 
     for _, key in ipairs(word) do
@@ -195,6 +215,21 @@ function M.setup(opts)
 
       vim.cmd("norm! " .. count .. "j")
     end, { desc = "Join lines" })
+
+    if visual_only then
+      vim.keymap.set("x", "<Esc>", function()
+        vim.cmd("norm! " .. vim.keycode("<Esc>") .. "v")
+      end)
+      vim.keymap.set("x", "<A-Esc>", function()
+        vim.cmd("norm! " .. vim.keycode("<Esc>"))
+      end)
+
+      for _, key in ipairs({ "d", "c", "y" }) do
+        vim.keymap.set("x", key, function()
+          vim.cmd("norm! " .. key .. "v")
+        end)
+      end
+    end
   end
 
   for _, key in ipairs({ "d", "c", "y" }) do
