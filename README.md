@@ -46,7 +46,7 @@ require("kak").setup({
 
 ```lua
 {
-  disable_full = false, -- disables most keybinds, except for Normal mode c, d, x and y keybinds
+  full = true, -- if set to false, it disables all keybinds except Normal mode c, d, x, y
 }
 ```
 

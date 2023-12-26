@@ -3,7 +3,7 @@ local M = {}
 function M.setup(opts)
   local opts = opts or {}
 
-  if not opts.disable_full then
+  if opts.full == true then
     local movement = { "h", "j", "k", "l" }
     local word = { "w", "e", "b" }
     local ft = { "f", "t" }
