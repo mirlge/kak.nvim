@@ -79,7 +79,7 @@ require("kak").setup({
 - `[wbeft]`: Create new selection with key
 - `[ai]`: Append/insert (to Insert mode)
 - `<A-[wbe]>`: Create new selection backwards with the key
-- `<A-j>`: Join lines (doesn't work)
+- `<A-j>`: Join lines
 
 ##### Visual only mode
 

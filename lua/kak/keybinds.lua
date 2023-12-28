@@ -216,7 +216,7 @@ function M.setup(opts)
         count = 1
       end
 
-      vim.cmd("norm! " .. count .. "j")
+      vim.cmd("norm! " .. count .. "J")
     end, { desc = "Join lines" })
 
     if visual_only then
