@@ -132,6 +132,9 @@ function M.setup(opts)
       end)
 
       vim.keymap.set("x", key, "<Esc>" .. key)
+
+      local upper_key = string.upper(key)
+      vim.keymap.set("x", upper_key, "<Esc>" .. upper_key)
     end
     for _, key in ipairs(ft) do
       vim.keymap.set("n", key, function()
