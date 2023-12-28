@@ -65,9 +65,9 @@ function M.setup(opts)
 
           vim.cmd("norm! " .. count .. key .. "v")
         end)
-        vim.keymap.set("i", "<Esc>", function()
-          vim.cmd("norm! " .. vim.keycode("<Esc>") .. "v")
-        end, { desc = "Exit Insert mode" })
+        --vim.keymap.set("i", "<Esc>", function()
+        --  vim.cmd("norm! " .. vim.keycode("<Esc>") .. "v")
+        --end, { desc = "Exit Insert mode" })
       end
     end
 
