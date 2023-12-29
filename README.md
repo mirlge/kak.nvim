@@ -72,6 +72,8 @@ require("kak").setup({
 - `[ai]`: Append/insert (to Insert mode)
 - `<A-[wbe]>`: Create new selection backwards with the key
 - `<A-j>`: Join lines
+- `<A-[hl]>`: Extend selection all the way to \<motion> of the line
+- `g[hl]`: Go all the way to \<motion> of the line
 
 ##### Visual only mode
 
