@@ -3,6 +3,13 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] - 2023-12-29
+
+### Added
+
+- `<A-[hl]>` keybinds (extend selection all the way in the direction in the current line)
+- `g[hl]` keybinds (go all the way in the direction in the current line)
+
 ## [3.0.1] - 2023-12-28
 
 ### Changed
