@@ -81,7 +81,7 @@ require("kak").setup({
 
 ###### Insert mode
 
-- `<Esc>`: Back to Visual mode
+- `<Esc>`: Back to Visual mode (not enabled, doesn't work)
 
 ###### Visual mode
 
