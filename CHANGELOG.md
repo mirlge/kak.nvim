@@ -3,6 +3,23 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.2.0] - 2024-01-01
+
+### Added
+
+- `gg` key rebind in Visual mode to go to Normal mode first
+- `ge` keybind
+- `g[tcb]` keybinds
+- Utility function to reuse keybinds' rhs (`require("kak.utils").keybinds.set`)
+
+### Changed
+
+- Use `utils.keybinds.set()` to reuse keybinds' rhs
+
+### Deprecated
+
+- Visual only mode, to be removed in 4.0.0
+
 ## [3.1.0] - 2023-12-29
 
 ### Added
