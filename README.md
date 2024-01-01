@@ -2,6 +2,16 @@
 
 Changes keybinds in Neovim to use the Kakoune workflow
 
+## Prerequisites
+
+### Basic mode
+
+- Neovim 0.7+
+
+### Full and visual only mode
+
+- Neovim 0.10+
+
 ## Installation
 
 ### [💤 lazy.nvim](https://github.com/folke/lazy.nvim)

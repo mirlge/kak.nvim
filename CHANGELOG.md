@@ -57,7 +57,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Go back to Visual mode when pressing `<Esc>` in Insert mode, if Visual only mode is enabled
+- Go back to Visual mode when pressing `<Esc>` in Insert mode, if visual only mode is enabled
 
 ## [2.0.0] - 2023-12-27
 
