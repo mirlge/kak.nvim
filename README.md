@@ -74,16 +74,22 @@ require("kak").setup({
 - `<A-j>`: Join lines
 - `<A-[hl]>`: Extend selection all the way to \<motion> of the line
 - `g[hl]`: Go all the way to \<motion> of the line
+- `ge`: Go to buffer end
+- `g[tcb]`: \<key at the same place in \[HML]>
 
-##### Visual only mode
+##### Visual mode
+
+- `gg`: Go back to Normal mode first
+
+#### Visual only mode
 
 - `[hjkl]` Create new selection with key
 
-###### Insert mode
+##### Insert mode
 
 - `<Esc>`: Back to Visual mode (not enabled, doesn't work)
 
-###### Visual mode
+##### Visual mode
 
 - `[cdy]`: Back to Visual mode after action
 - `<Esc>`: Create new selection

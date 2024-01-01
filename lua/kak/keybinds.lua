@@ -10,6 +10,7 @@ function M.setup(opts)
     local word = { "w", "e", "b" }
     local ft = { "f", "t" }
     local around_inside = { "a", "i" }
+    local window_positions = { "t", "c", "b" }
 
     for _, key in ipairs(vim.list_extend(movement, word)) do
       local upper_key = string.upper(key)
@@ -27,9 +28,7 @@ function M.setup(opts)
       if opts.visual_only then
         utils.keybind.set(key, key .. "v", { mode = "x", post_first_str_extra_str = vim.keycode("<Esc>") })
         utils.keybind.set(key, key .. "v")
-        --vim.keymap.set("i", "<Esc>", function()
-        --  vim.cmd("norm! " .. vim.keycode("<Esc>") .. "v")
-        --end, { desc = "Exit Insert mode" })
+        --utils.keybind.set("<Esc>", vim.keycode("<Esc>") .. "v" , { mode = "i", opts = { desc = "Exit Insert mode" }, countable = false })
       end
     end
 
@@ -53,17 +52,22 @@ function M.setup(opts)
 
     for _, key in ipairs(around_inside) do
       local key_wrapped = "<A-" .. key .. ">"
-      vim.keymap.set("n", key_wrapped, function()
-        vim.cmd("norm! v" .. key .. vim.fn.getcharstr())
-      end)
-      vim.keymap.set("x", key_wrapped, function()
-        vim.cmd("norm! " .. vim.keycode("<Esc>") .. "v" .. key .. vim.fn.getcharstr())
-      end)
+      utils.keybind.set(
+        key_wrapped,
+        key,
+        { post_first_str_extra_str = "v", countable = false, getcharstr = true }
+      )
+      utils.keybind.set(key_wrapped, key, {
+        mode = "x",
+        countable = false,
+        post_first_str_extra_str = vim.keycode("<Esc>") .. "v",
+        getcharstr = true,
+      })
 
-      vim.keymap.set("x", key, "<Esc>" .. key)
+      utils.keybind.set(key, "<Esc>" .. key, { countable = false, mode = "x" })
 
       local upper_key = string.upper(key)
-      vim.keymap.set("x", upper_key, "<Esc>" .. upper_key)
+      utils.keybind.set(upper_key, "<Esc>" .. upper_key, { mode = "x", countable = false })
     end
     for _, key in ipairs(ft) do
       utils.keybind.set(key, key, { pre_count = true, pre_key_str = "v", getcharstr = true })
@@ -85,45 +89,30 @@ function M.setup(opts)
       utils.keybind.set(key_wrapped, upper_key, { mode = "x", getcharstr = true })
     end
 
-    vim.keymap.set("n", "<A-h>", function()
-      vim.cmd("norm! v0")
-    end)
-    vim.keymap.set("x", "<A-h>", function()
-      vim.cmd("norm! 0")
-    end)
-    vim.keymap.set("n", "<A-l>", function()
-      vim.cmd("norm! v$")
-    end)
-    vim.keymap.set("x", "<A-l>", function()
-      vim.cmd("norm! $")
-    end)
-    vim.keymap.set("n", "gh", function()
-      vim.cmd("norm! 0")
-    end)
-    vim.keymap.set("x", "gh", function()
-      vim.cmd("norm! " .. vim.keycode("<Esc>") .. "0")
-    end)
-    vim.keymap.set("n", "gl", function()
-      vim.cmd("norm! $")
-    end)
-    vim.keymap.set("x", "gl", function()
-      vim.cmd("norm! " .. vim.keycode("<Esc>") .. "$")
-    end)
+    utils.keybind.set("<A-h>", "v0", { countable = false })
+    utils.keybind.set("<A-h>", "0", { mode = "x", countable = false })
+    utils.keybind.set("<A-l>", "v$", { countable = false })
+    utils.keybind.set("<A-l>", "$", { mode = "x", countable = false })
+    utils.keybind.set("gh", "0", { countable = false })
+    utils.keybind.set("gh", vim.keycode("<Esc>") .. "0", { mode = "x", countable = false })
+    utils.keybind.set("gl", "$", { countable = false })
+    utils.keybind.set("gl", vim.keycode("<Esc>") .. "$", { mode = "x", countable = false })
+    utils.keybind.set("ge", "G", { countable = false })
+    utils.keybind.set("ge", vim.keycode("<Esc>") .. "G", { mode = "x", countable = false })
+    utils.keybind.set("gg", vim.keycode("<Esc>") .. "gg", { mode = "x", countable = false })
 
     utils.keybind.set("<A-j>", "J", { mode = { "n", "v" }, opts = { desc = "Join lines" } })
 
+    utils.keybind.set("gt", "H", { countable = false })
+    utils.keybind.set("gc", "M", { countable = false })
+    utils.keybind.set("gb", "L", { countable = false })
+
     if opts.visual_only then
-      vim.keymap.set("x", "<Esc>", function()
-        vim.cmd("norm! " .. vim.keycode("<Esc>") .. "v")
-      end)
-      vim.keymap.set("x", "<A-Esc>", function()
-        vim.cmd("norm! " .. vim.keycode("<Esc>"))
-      end)
+      utils.keybind.set("<Esc>", vim.keycode("<Esc>") .. "v", { mode = "x", countable = false })
+      utils.keybind.set("<A-Esc>", vim.keycode("<Esc>"), { mode = "x", countable = false })
 
       for _, key in ipairs({ "d", "c", "y" }) do
-        vim.keymap.set("x", key, function()
-          vim.cmd("norm! " .. key .. "v")
-        end)
+        utils.keybind.set(key, key .. "v", { mode = "x", countable = false })
       end
     end
   end
