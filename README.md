@@ -84,8 +84,9 @@ require("kak").setup({
 - `<A-j>`: Join lines
 - `<A-[hl]>`: Extend selection all the way to \<motion> of the line
 - `g[hl]`: Go all the way to \<motion> of the line
-- `ge`: Go to buffer end
+- `g[ge]`: Go to buffer start/end
 - `g[tcb]`: \<key at the same place in \[HML]>
+- `g[jk]`: Go to buffer bottom/top
 
 ##### Visual mode
 
