@@ -22,11 +22,11 @@ function M.keybind.set(key, resulting_key, opts)
     end
     local resulting_resulting_key = resulting_key .. char
 
-    local count = 1
+    local count = ""
     if opts.countable then
-      count = vim.v.count
-      if count < 1 then
-        count = 1
+      count = "" .. vim.v.count
+      if vim.v.count < 1 then
+        count = "1"
       end
     end
     local pre_count = count
