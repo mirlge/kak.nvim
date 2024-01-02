@@ -15,26 +15,26 @@ function M.setup(opts)
     for _, key in ipairs(vim.list_extend(movement, word)) do
       local upper_key = string.upper(key)
 
-      utils.keybind.set(upper_key, key, { post_first_str_extra_str = "v" })
-      utils.keybind.set(upper_key, key, { mode = "x" })
+      utils.keymap.set(upper_key, key, { post_first_str_extra_str = "v" })
+      utils.keymap.set(upper_key, key, { mode = "x" })
     end
 
     for _, key in ipairs(movement) do
       local upper_key = string.upper(key)
 
-      utils.keybind.set(key, key, { mode = "x", post_first_str_extra_str = vim.keycode("<Esc>") })
-      utils.keybind.set(upper_key, key, { post_first_str_extra_str = "v" })
+      utils.keymap.set(key, key, { mode = "x", post_first_str_extra_str = vim.keycode("<Esc>") })
+      utils.keymap.set(upper_key, key, { post_first_str_extra_str = "v" })
 
       if opts.visual_only then
-        utils.keybind.set(key, key .. "v", { mode = "x", post_first_str_extra_str = vim.keycode("<Esc>") })
-        utils.keybind.set(key, key .. "v")
-        --utils.keybind.set("<Esc>", vim.keycode("<Esc>") .. "v" , { mode = "i", opts = { desc = "Exit Insert mode" }, countable = false })
+        utils.keymap.set(key, key .. "v", { mode = "x", post_first_str_extra_str = vim.keycode("<Esc>") })
+        utils.keymap.set(key, key .. "v")
+        --utils.keymap.set("<Esc>", vim.keycode("<Esc>") .. "v" , { mode = "i", opts = { desc = "Exit Insert mode" }, countable = false })
       end
     end
 
     for _, key in ipairs(word) do
-      utils.keybind.set(key, key, { pre_count = true, pre_key_str = "v" })
-      utils.keybind.set(
+      utils.keymap.set(key, key, { pre_count = true, pre_key_str = "v" })
+      utils.keymap.set(
         key,
         key,
         { mode = "x", pre_count = true, post_first_str_extra_str = vim.keycode("<Esc>"), pre_key_str = "v" }
@@ -42,8 +42,8 @@ function M.setup(opts)
 
       local wrapped_key = "<A-" .. key .. ">"
       local upper_key = string.upper(key)
-      utils.keybind.set(wrapped_key, upper_key, { pre_count = true, pre_key_str = "v" })
-      utils.keybind.set(
+      utils.keymap.set(wrapped_key, upper_key, { pre_count = true, pre_key_str = "v" })
+      utils.keymap.set(
         wrapped_key,
         upper_key,
         { mode = "x", post_first_str_extra_str = vim.keycode("<Esc>"), pre_count = true, pre_key_str = "v" }
@@ -52,26 +52,22 @@ function M.setup(opts)
 
     for _, key in ipairs(around_inside) do
       local key_wrapped = "<A-" .. key .. ">"
-      utils.keybind.set(
-        key_wrapped,
-        key,
-        { post_first_str_extra_str = "v", countable = false, getcharstr = true }
-      )
-      utils.keybind.set(key_wrapped, key, {
+      utils.keymap.set(key_wrapped, key, { post_first_str_extra_str = "v", countable = false, getcharstr = true })
+      utils.keymap.set(key_wrapped, key, {
         mode = "x",
         countable = false,
         post_first_str_extra_str = vim.keycode("<Esc>") .. "v",
         getcharstr = true,
       })
 
-      utils.keybind.set(key, vim.keycode("<Esc>") .. key, { countable = false, mode = "x" })
+      vim.keymap.set("x", key, vim.keycode("<Esc>") .. key)
 
       local upper_key = string.upper(key)
-      utils.keybind.set(upper_key, vim.keycode("<Esc>") .. upper_key, { mode = "x", countable = false })
+      vim.keymap.set("x", upper_key, vim.keycode("<Esc>") .. upper_key)
     end
     for _, key in ipairs(ft) do
-      utils.keybind.set(key, key, { pre_count = true, pre_key_str = "v", getcharstr = true })
-      utils.keybind.set(key, key, {
+      utils.keymap.set(key, key, { pre_count = true, pre_key_str = "v", getcharstr = true })
+      utils.keymap.set(key, key, {
         post_first_str_extra_str = vim.keycode("<Esc>"),
         pre_key_str = "v",
         pre_count = true,
@@ -81,43 +77,43 @@ function M.setup(opts)
 
       local upper_key = string.upper(key)
 
-      utils.keybind.set(upper_key, key, { post_first_str_extra_str = "v", getcharstr = true })
-      utils.keybind.set(upper_key, key, { mode = "x", getcharstr = true })
+      utils.keymap.set(upper_key, key, { post_first_str_extra_str = "v", getcharstr = true })
+      utils.keymap.set(upper_key, key, { mode = "x", getcharstr = true })
 
       local key_wrapped = "<A-" .. key .. ">"
-      utils.keybind.set(key_wrapped, upper_key, { post_first_str_extra_str = "v", getcharstr = true })
-      utils.keybind.set(key_wrapped, upper_key, { mode = "x", getcharstr = true })
+      utils.keymap.set(key_wrapped, upper_key, { post_first_str_extra_str = "v", getcharstr = true })
+      utils.keymap.set(key_wrapped, upper_key, { mode = "x", getcharstr = true })
     end
 
-    utils.keybind.set("<A-h>", "v0", { countable = false })
-    utils.keybind.set("<A-h>", "0", { mode = "x", countable = false })
-    utils.keybind.set("<A-l>", "v$", { countable = false })
-    utils.keybind.set("<A-l>", "$", { mode = "x", countable = false })
-    utils.keybind.set("gh", "0", { countable = false })
-    utils.keybind.set("gh", vim.keycode("<Esc>") .. "0", { mode = "x", countable = false })
-    utils.keybind.set("gl", "$", { countable = false })
-    utils.keybind.set("gl", vim.keycode("<Esc>") .. "$", { mode = "x", countable = false })
-    utils.keybind.set("ge", "G$", { countable = false })
-    utils.keybind.set("ge", vim.keycode("<Esc>") .. "G$", { mode = "x", countable = false })
-    utils.keybind.set("gj", "G", { countable = false })
-    utils.keybind.set("gj", vim.keycode("<Esc>") .. "G", { mode = "x", countable = false })
-    utils.keybind.set("gg", "gg0", { countable = false })
-    utils.keybind.set("gg", vim.keycode("<Esc>") .. "gg0", { mode = "x", countable = false })
-    utils.keybind.set("gk", "gg", { countable = false })
-    utils.keybind.set("gk", vim.keycode("<Esc>") .. "gg", { mode = "x", countable = false })
+    utils.keymap.set("<A-h>", "v0", { countable = false })
+    utils.keymap.set("<A-h>", "0", { mode = "x", countable = false })
+    utils.keymap.set("<A-l>", "v$", { countable = false })
+    utils.keymap.set("<A-l>", "$", { mode = "x", countable = false })
+    utils.keymap.set("gh", "0", { countable = false })
+    utils.keymap.set("gh", vim.keycode("<Esc>") .. "0", { mode = "x", countable = false })
+    utils.keymap.set("gl", "$", { countable = false })
+    utils.keymap.set("gl", vim.keycode("<Esc>") .. "$", { mode = "x", countable = false })
+    utils.keymap.set("ge", "G$", { countable = false })
+    utils.keymap.set("ge", vim.keycode("<Esc>") .. "G$", { mode = "x", countable = false })
+    utils.keymap.set("gj", "G", { countable = false })
+    utils.keymap.set("gj", vim.keycode("<Esc>") .. "G", { mode = "x", countable = false })
+    utils.keymap.set("gg", "gg0", { countable = false })
+    utils.keymap.set("gg", vim.keycode("<Esc>") .. "gg0", { mode = "x", countable = false })
+    utils.keymap.set("gk", "gg", { countable = false })
+    utils.keymap.set("gk", vim.keycode("<Esc>") .. "gg", { mode = "x", countable = false })
 
-    utils.keybind.set("<A-j>", "J", { mode = { "n", "v" }, opts = { desc = "Join lines" } })
+    utils.keymap.set("<A-j>", "J", { mode = { "n", "v" }, opts = { desc = "Join lines" } })
 
-    utils.keybind.set("gt", "H", { countable = false })
-    utils.keybind.set("gc", "M", { countable = false })
-    utils.keybind.set("gb", "L", { countable = false })
+    utils.keymap.set("gt", "H", { countable = false })
+    utils.keymap.set("gc", "M", { countable = false })
+    utils.keymap.set("gb", "L", { countable = false })
 
     if opts.visual_only then
-      utils.keybind.set("<Esc>", vim.keycode("<Esc>") .. "v", { mode = "x", countable = false })
-      utils.keybind.set("<A-Esc>", vim.keycode("<Esc>"), { mode = "x", countable = false })
+      utils.keymap.set("<Esc>", vim.keycode("<Esc>") .. "v", { mode = "x", countable = false })
+      utils.keymap.set("<A-Esc>", vim.keycode("<Esc>"), { mode = "x", countable = false })
 
       for _, key in ipairs({ "d", "c", "y" }) do
-        utils.keybind.set(key, key .. "v", { mode = "x", countable = false })
+        utils.keymap.set(key, key .. "v", { mode = "x", countable = false })
       end
     end
   end

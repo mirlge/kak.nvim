@@ -1,5 +1,5 @@
 local M = {
-  keybind = {
+  keymap = {
     defaults = {
       countable = true,
       pre_count = false,
@@ -12,7 +12,7 @@ local M = {
   },
 }
 
-function M.keybind.set(key, resulting_key, opts)
+function M.keymap.set(key, resulting_key, opts)
   local opts = vim.tbl_extend("force", M.keybind.defaults, opts or {})
 
   local rhs = function()
@@ -24,15 +24,14 @@ function M.keybind.set(key, resulting_key, opts)
 
     local count = ""
     if opts.countable then
-      count = "" .. vim.v.count
-      if vim.v.count < 1 then
-        count = "1"
+      if vim.v.count >= 1 then
+        count = "" .. vim.v.count
       end
     end
     local pre_count = count
     if opts.pre_count then
-      pre_count = "" .. count - 1 .. resulting_key
-      if pre_count == "0" .. resulting_key then
+      pre_count = "" .. vim.v.count - 1 .. resulting_resulting_key
+      if pre_count == "0" .. resulting_resulting_key then
         pre_count = ""
       end
     end
