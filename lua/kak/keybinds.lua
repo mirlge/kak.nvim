@@ -64,10 +64,10 @@ function M.setup(opts)
         getcharstr = true,
       })
 
-      utils.keybind.set(key, "<Esc>" .. key, { countable = false, mode = "x" })
+      utils.keybind.set(key, vim.keycode("<Esc>") .. key, { countable = false, mode = "x" })
 
       local upper_key = string.upper(key)
-      utils.keybind.set(upper_key, "<Esc>" .. upper_key, { mode = "x", countable = false })
+      utils.keybind.set(upper_key, vim.keycode("<Esc>") .. upper_key, { mode = "x", countable = false })
     end
     for _, key in ipairs(ft) do
       utils.keybind.set(key, key, { pre_count = true, pre_key_str = "v", getcharstr = true })
