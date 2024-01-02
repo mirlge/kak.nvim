@@ -8,7 +8,7 @@ Changes keybinds in Neovim to use the Kakoune workflow
 
 - Neovim 0.7+
 
-### Full and visual only mode
+### Full mode
 
 - Neovim 0.10+
 
@@ -57,7 +57,6 @@ require("kak").setup({
 ```lua
 {
   full = true, -- if set to false, it disables all keybinds except Normal mode c, d, x, y
-  visual_only = false, -- makes it be in Visual mode by default
 }
 ```
 
@@ -91,17 +90,3 @@ require("kak").setup({
 ##### Visual mode
 
 - `gg`: Go back to Normal mode first
-
-#### Visual only mode
-
-- `[hjkl]` Create new selection with key
-
-##### Insert mode
-
-- `<Esc>`: Back to Visual mode (not enabled, doesn't work)
-
-##### Visual mode
-
-- `[cdy]`: Back to Visual mode after action
-- `<Esc>`: Create new selection
-- `<A-Esc>`: To Normal mode

@@ -24,12 +24,6 @@ function M.setup(opts)
 
       utils.keymap.set(key, key, { mode = "x", post_first_str_extra_str = vim.keycode("<Esc>") })
       utils.keymap.set(upper_key, key, { post_first_str_extra_str = "v" })
-
-      if opts.visual_only then
-        utils.keymap.set(key, key .. "v", { mode = "x", post_first_str_extra_str = vim.keycode("<Esc>") })
-        utils.keymap.set(key, key .. "v")
-        --utils.keymap.set("<Esc>", vim.keycode("<Esc>") .. "v" , { mode = "i", opts = { desc = "Exit Insert mode" }, countable = false })
-      end
     end
 
     for _, key in ipairs(word) do
@@ -107,15 +101,6 @@ function M.setup(opts)
     utils.keymap.set("gt", "H", { countable = false })
     utils.keymap.set("gc", "M", { countable = false })
     utils.keymap.set("gb", "L", { countable = false })
-
-    if opts.visual_only then
-      utils.keymap.set("<Esc>", vim.keycode("<Esc>") .. "v", { mode = "x", countable = false })
-      utils.keymap.set("<A-Esc>", vim.keycode("<Esc>"), { mode = "x", countable = false })
-
-      for _, key in ipairs({ "d", "c", "y" }) do
-        utils.keymap.set(key, key .. "v", { mode = "x", countable = false })
-      end
-    end
   end
 
   for _, key in ipairs({ "d", "c", "y" }) do
