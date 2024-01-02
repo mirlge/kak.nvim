@@ -13,7 +13,7 @@ local M = {
 }
 
 function M.keymap.set(key, resulting_key, opts)
-  local opts = vim.tbl_extend("force", M.keybind.defaults, opts or {})
+  local opts = vim.tbl_extend("force", M.keymap.defaults, opts or {})
 
   local rhs = function()
     local char = ""
