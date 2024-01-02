@@ -10,7 +10,6 @@ function M.setup(opts)
     local word = { "w", "e", "b" }
     local ft = { "f", "t" }
     local around_inside = { "a", "i" }
-    local window_positions = { "t", "c", "b" }
 
     for _, key in ipairs(vim.list_extend(movement, word)) do
       local upper_key = string.upper(key)
@@ -54,10 +53,10 @@ function M.setup(opts)
         getcharstr = true,
       })
 
-      vim.keymap.set("x", key, vim.keycode("<Esc>") .. key)
+      vim.keymap.set("x", key, "<Esc>" .. key)
 
       local upper_key = string.upper(key)
-      vim.keymap.set("x", upper_key, vim.keycode("<Esc>") .. upper_key)
+      vim.keymap.set("x", upper_key, "<Esc>" .. upper_key)
     end
     for _, key in ipairs(ft) do
       utils.keymap.set(key, key, { pre_count = true, pre_key_str = "v", getcharstr = true })

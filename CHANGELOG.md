@@ -12,11 +12,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- `g[ge]` keybinds now has their actual behaviour in Kakoune
+- `g[ge]` keybinds now has the behaviour that they actually have in Kakoune
+- Rename `utils.keybind` to `utils.keymap`
+
+### Removed
+
+- Visual only mode
 
 ### Fixed
 
 - `g[ge]` keybinds
+- Visual mode to Insert mode keybinds
 
 ## [3.2.0] - 2024-01-01
 
