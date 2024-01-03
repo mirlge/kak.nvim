@@ -100,6 +100,23 @@ function M.setup(opts)
     utils.keymap.set("gt", "H", { countable = false })
     utils.keymap.set("gc", "M", { countable = false })
     utils.keymap.set("gb", "L", { countable = false })
+
+    utils.keymap.set(
+      "p",
+      "p",
+      { mode = "x", post_first_str_extra_str = vim.keycode("<Esc>") .. "`>", pre_count = true }
+    )
+    utils.keymap.set(
+      "P",
+      "P",
+      {
+        mode = "x",
+        post_first_str_extra_str = vim.keycode("<Esc>") .. "`<",
+        pre_count = true,
+        second_resulting_key = "p",
+      }
+    )
+    utils.keymap.set("R", "p", { mode = "x", pre_count = true })
   end
 
   for _, key in ipairs({ "d", "c", "y" }) do

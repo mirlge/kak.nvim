@@ -14,6 +14,7 @@ local M = {
 
 function M.keymap.set(key, resulting_key, opts)
   local opts = vim.tbl_extend("force", M.keymap.defaults, opts or {})
+  opts.second_resulting_key = opts.second_resulting_key or resulting_key
 
   local rhs = function()
     local char = ""
@@ -34,6 +35,8 @@ function M.keymap.set(key, resulting_key, opts)
       pre_count = "" .. count - 1 .. resulting_resulting_key
       if count <= 1 then
         pre_count = ""
+      else
+        resulting_resulting_key = opts.second_resulting_key .. char
       end
     end
 
