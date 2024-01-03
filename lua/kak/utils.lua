@@ -30,8 +30,9 @@ function M.keymap.set(key, resulting_key, opts)
     end
     local pre_count = count
     if opts.pre_count then
-      pre_count = "" .. vim.v.count - 1 .. resulting_resulting_key
-      if pre_count == "0" .. resulting_resulting_key then
+      local count = vim.v.count
+      pre_count = "" .. count - 1 .. resulting_resulting_key
+      if count <= 1 then
         pre_count = ""
       end
     end
