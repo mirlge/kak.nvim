@@ -106,13 +106,13 @@ function M.setup(opts)
       "p",
       { mode = "x", post_first_str_extra_str = vim.keycode("<Esc>") .. "`>", pre_count = true }
     )
-    utils.keymap.set("R", "p", { mode = "x", pre_count = true })
     utils.keymap.set("P", "P", {
       mode = "x",
       post_first_str_extra_str = vim.keycode("<Esc>") .. "`<",
       pre_count = true,
       second_resulting_key = "p",
     })
+    utils.keymap.set("R", "p", { mode = "x" })
     utils.keymap.set("R", "vp", { mode = "x" })
   end
 
