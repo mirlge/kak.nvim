@@ -4,13 +4,7 @@ Changes keybinds in Neovim to use the Kakoune workflow
 
 ## Prerequisites
 
-### Basic mode
-
 - Neovim 0.7+
-
-### Full mode
-
-- Neovim 0.10+
 
 ## Installation
 

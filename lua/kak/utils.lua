@@ -46,4 +46,8 @@ function M.keymap.set(key, resulting_key, opts)
   vim.keymap.set(opts.mode, key, rhs, opts.opts)
 end
 
+function M.keycode(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
 return M
