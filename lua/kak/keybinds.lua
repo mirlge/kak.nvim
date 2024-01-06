@@ -115,7 +115,7 @@ function M.setup(opts)
       second_resulting_key = "p",
     })
     utils.keymap.set("R", "p", { mode = "x" })
-    utils.keymap.set("R", "vp", { mode = "x" })
+    utils.keymap.set("R", "p", { post_first_str_extra_str = "v" })
   end
 
   for _, key in ipairs({ "d", "c", "y" }) do
