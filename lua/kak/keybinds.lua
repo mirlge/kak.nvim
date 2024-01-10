@@ -55,11 +55,12 @@ function M.setup(opts)
         getcharstr = true,
       })
 
-      vim.keymap.set("x", key, "<Esc>" .. key)
-
       local upper_key = string.upper(key)
       vim.keymap.set("x", upper_key, "<Esc>" .. upper_key)
     end
+    vim.keymap.set("x", "i", "<Esc>`<i")
+    vim.keymap.set("x", "a", "<Esc>`>a")
+
     for _, key in ipairs(ft) do
       utils.keymap.set(key, key, { pre_count = true, pre_key_str = "v", getcharstr = true })
       utils.keymap.set(key, key, {

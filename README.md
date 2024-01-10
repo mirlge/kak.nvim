@@ -72,7 +72,6 @@ require("kak").setup({
 - `<A-[ai]>`: Around/inside
 - `[hjkl]`: Remove current selection
 - `[wbeft]`: Create new selection with key
-- `[ai]`: Append/insert (to Insert mode)
 - `<A-[wbe]>`: Create new selection backwards with the key
 - `<A-j>`: Join lines
 - `<A-[hl]>`: Extend selection all the way to \<motion> of the line
@@ -84,3 +83,4 @@ require("kak").setup({
 ##### Visual mode
 
 - `gg`: Go back to Normal mode first
+- `[ai]`: Append/insert (to Insert mode) on the corresponding end of the selection
