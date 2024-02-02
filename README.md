@@ -1,4 +1,4 @@
-# This project is now only available in the Codeberg repo
+# This project is now only available in [the Codeberg repo](https://codeberg.org/mirge/kak.nvim)
 
 # kak.nvim - Kakoune-like keybinds for Neovim
 
@@ -11,8 +11,6 @@ Changes keybinds in Neovim to use the Kakoune workflow
 ## Installation
 
 ### [💤 lazy.nvim](https://github.com/folke/lazy.nvim)
-
-#### From [the Codeberg repo](https://codeberg.org/mirge/kak.nvim)
 
 ```lua
 {
