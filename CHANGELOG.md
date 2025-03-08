@@ -16,6 +16,7 @@ and this project adheres to [🗿 Epoch Semantic Versioning](https://antfu.me/po
 - Old `kak.utils.keymap` module is now `kak.utils._keymap`
 - Updated all keybinds that used the old function to use the new and improved
   `kak.utils.keymap.set()` function
+- Updated "Rebound keybinds" section in README.md
 
 ### Fixed
 

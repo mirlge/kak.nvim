@@ -80,23 +80,29 @@ require("kak").setup({
 
 #### Full mode
 
-- `<A-[ft]`: Extend selection backwards with the key
+- `<A-[ft]>`: Extend selection backwards with the key
 - `[HJKLWBEFT]`: Extend selection with the lowercase key
 - `<A-[ai]>`: Around/inside
-- `[hjkl]`: Remove current selection
+- `[hjkl]`: Exit Visual mode first
 - `[wbeft]`: Create new selection with key
-- `<A-[wbe]>`: Create new selection backwards with the key
+- `<A-[wbe]>`: Extend selection with the key
 - `<A-j>`: Join lines
-- `<A-[hl]>`: Extend selection all the way to \<motion> of the line
-- `g[hl]`: Go all the way to \<motion> of the line
-- `g[ge]`: Go to buffer start/end
-- `g[tcb]`: \<key at the same place in \[HML]>
-- `g[jk]`: Go to buffer bottom/top
+- `<A-[hl]>`: Extend selection all the way to the corresponding end of the line
+- `g[hl]`: Go all the way to the corresponding end of the line
+- `g[ge]`: Jump to buffer start/end
+- `g[tcb]`: \<key at the same place in `[HML]`>, but exit Visual mode first
+- `g[jk]`: Jump to buffer bottom/top
+
+##### Normal mode
+
+- `R`: Replace the character which the cursor is on with yanked content
 
 ##### Visual mode
 
-- `gg`: Go back to Normal mode first
-- `[ai]`: Append/insert (to Insert mode) on the corresponding end of the selection
+- `[ai]`: If experimental option `rebind_visual_aiAI` is enabled, append/insert
+  (to Insert mode) on the corresponding end of the selection
+- `[pP]`: Paste at the corresponding end of the selection
+- `R`: Replace selection with yanked content
 
 ## TODO
 
