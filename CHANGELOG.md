@@ -3,6 +3,27 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [🗿 Epoch Semantic Versioning](https://antfu.me/posts/epoch-semver).
 
+## [Unreleased]
+
+### Added
+
+- New and much better `kak.utils.keymap` module with a new preset system
+  and ability to iterate over a list of keys, but it still uses the old
+  `kak.utils._keymap.set()` function
+
+### Changed
+
+- Old `kak.utils.keymap` module is now `kak.utils._keymap`
+- Updated all keybinds that used the old function to use the new and improved
+  `kak.utils.keymap.set()` function
+
+### Fixed
+
+- If a count was given to the Normal mode `<A-[ai]>` keybinds, that amount of
+  characters would get selected instead of selecting the specified text object.
+  This bug is however only fixed if you have the experimental option
+  `rebind_visual_aiAI` enabled.
+
 ## [6.4.0] - 2025-01-18
 
 ### Added
