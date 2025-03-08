@@ -48,8 +48,16 @@ function M.keymap.set(keys, opts)
         -- if `key` is a table, don't perform Lhs_key_func and Rhs_key_func
         -- on the 2 keys
         if type(key) == "table" then
-          lhs_key = key[1]
-          rhs_key = key[2]
+          if preset_opts.Lhs_key_func_force then
+            lhs_key = preset_opts.Lhs_key_func(key[1])
+          else
+            lhs_key = key[1]
+          end
+          if preset_opts.Rhs_key_func_force then
+            rhs_key = preset_opts.Rhs_key_func(key[2])
+          else
+            rhs_key = key[2]
+          end
         else
           lhs_key = preset_opts.Lhs_key_func(key)
           rhs_key = preset_opts.Rhs_key_func(key)
@@ -112,9 +120,11 @@ M.keymap.presets = {
     Modes = { "Normal_mode", "Visual_mode" },
     Lhs_key_func = function(key) return key end,
     Rhs_key_func = function(key) return key end,
+    Lhs_key_func_force = false, -- makes `[LR]hs_key_func` be applied to
+    Rhs_key_func_force = false, -- lhs_key even if the specified key is a table
     Normal_mode = { mode = "n" },
     Visual_mode = { mode = "x" },
-    Extra_opts_func = function(key) return {} end
+    Extra_opts_func = function(key) return {} end,
   },
 
   -- exit Visual mode and then reenter Visual mode before performing the movement
