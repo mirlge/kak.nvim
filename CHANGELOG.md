@@ -28,6 +28,7 @@ and this project adheres to [🗿 Epoch Semantic Versioning](https://antfu.me/po
   characters would get selected instead of selecting the specified text object.
   This bug is however only fixed if you have the experimental option
   `rebind_visual_aiAI` enabled.
+- If experimental option `rebind_visual_aiAI` was enabled but `full` option was disabled, Visual mode `[aiAI]` keys would still be rebound
 
 ## [6.4.0] - 2025-01-18
 

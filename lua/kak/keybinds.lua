@@ -47,10 +47,10 @@ function M.setup(opts)
         vim.keymap.set("x", upper_key, "<Esc>" .. upper_key)
       end
     end
-  end
-  if opts.experimental.rebind_visual_aiAI then
-    vim.keymap.set("x", "i", "<Esc>`<i")
-    vim.keymap.set("x", "a", "<Esc>`>a")
+    if opts.experimental.rebind_visual_aiAI then
+      vim.keymap.set("x", "i", "<Esc>`<i")
+      vim.keymap.set("x", "a", "<Esc>`>a")
+    end
   end
 
   for _, key in ipairs({ "d", "c", "y" }) do
