@@ -14,17 +14,18 @@ function M.setup(opts)
     utils.keymap.set({ "f", "t" }, { presets = { "reselect", "extend", "alternate_extend" }, getcharstr = true })
 
     utils.keymap.set({ { "<A-h>", "0" }, { "<A-l>", "$" } }, { presets = { "extend" }, countable = false })
-    utils.keymap.set({ { "gh", "0" }, { "gl", "$" } }, { presets = { "jump" } })
+    utils.keymap.set({ { "gh", "0" }, { "gl", "$" } },
+      { presets = { "noselect", "goto_extend" }, countable = false })
     utils.keymap.set({
+      { "gg", "gg0" },
       { "ge", "G$" },
       { "gj", "G" },
-      { "gg", "gg0" },
       { "gk", "gg" },
 
       { "gt", "H" },
       { "gc", "M" },
       { "gb", "L" },
-    }, { presets = { "none" }, countable = false })
+    }, { presets = { "noselect", "goto_extend" }, countable = false })
 
     utils.keymap.set({ { "<A-j>", "J" } }, { presets = { "none" }, opts = { desc = "Join lines" } })
 

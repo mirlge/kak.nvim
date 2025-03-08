@@ -10,12 +10,16 @@ and this project adheres to [🗿 Epoch Semantic Versioning](https://antfu.me/po
 - New and much better `kak.utils.keymap` module with a new preset system
   and ability to iterate over a list of keys, but it still uses the old
   `kak.utils._keymap.set()` function
+- Goto extend keybinds (like previous goto keybinds, but with the prefix `G`
+  instead of `g`)
 
 ### Changed
 
 - Old `kak.utils.keymap` module is now `kak.utils._keymap`
 - Updated all keybinds that used the old function to use the new and improved
   `kak.utils.keymap.set()` function
+- Normal goto keybinds now no longer extend the selection at all, for that
+  there now are goto extend keybinds
 - Updated "Rebound keybinds" section in README.md
 
 ### Fixed

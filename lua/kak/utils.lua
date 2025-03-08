@@ -184,14 +184,6 @@ M.keymap.presets = {
       Rhs_key_func = function(key) return M.keycode("<Esc>") .. "v" .. key end,
     },
   },
-  -- exits Visual mode and performs the movement
-  jump = {
-    countable = false,
-    Visual_mode = {
-      mode = "x",
-      pre_key_str = M.keycode("<Esc>")
-    },
-  },
   -- rhs_key works like normal
   none = {},
 }
@@ -212,6 +204,11 @@ local alternate_override = {
 }
 M.keymap.presets:Extend("reselect", "alternate", alternate_override)
 M.keymap.presets:Extend("extend", "alternate_extend", alternate_override)
+
+M.keymap.presets:Extend("extend", "goto_extend", {
+  Lhs_key_func_force = true,
+  Lhs_key_func = function(key) return string.gsub(key, "^%l", string.upper) end,
+})
 
 
 return M

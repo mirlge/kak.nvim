@@ -92,6 +92,10 @@ require("kak").setup({
 - `g[ge]`: Jump to buffer start/end
 - `g[tcb]`: \<key at the same place in `[HML]`>, but exit Visual mode first
 - `g[jk]`: Jump to buffer bottom/top
+- `G[hl]`: Same as `<A-[hl]>`, currently
+- `G[ge]`: Extend selection to buffer start/end
+- `G[tcb]`: \<key at the same place in `[HML]`>, but extend selection
+- `G[jk]`: Extend selection to buffer bottom/top
 
 ##### Normal mode
 
@@ -109,8 +113,8 @@ require("kak").setup({
 - [X] Readd `<A-[ai]>` keybinds
   - [X] Readd only the `<A-[ai]>` keybinds
   - [X] Readd key rebind of Visual mode `[aiAI]` keybinds, but as experimental opt-in
-- [ ] (maybe) Add `G` keybinds (`g`, but extends selection), as experimental opt-in
-  - [ ] Make all `g` keybinds leave Visual mode before executing them
+- [X] Add `G` keybinds (`g`, but extends selection), as experimental opt-in
+  - [X] Make all `g` keybinds leave Visual mode before executing them
 
 ## Contributing
 
