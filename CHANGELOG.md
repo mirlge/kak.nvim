@@ -11,7 +11,8 @@ and this project adheres to [🗿 Epoch Semantic Versioning](https://antfu.me/po
   and ability to iterate over a list of keys, but it still uses the old
   `kak.utils._keymap.set()` function
 - Goto extend keybinds (like previous goto keybinds, but with the prefix `G`
-  instead of `g`)
+  instead of `g` and it always extends the selection. It's also only
+  `G[hlgetcbjk]` which are added)
 
 ### Changed
 
