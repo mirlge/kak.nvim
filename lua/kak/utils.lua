@@ -205,6 +205,8 @@ local alternate_override = {
 M.keymap.presets:Extend("reselect", "alternate", alternate_override)
 M.keymap.presets:Extend("extend", "alternate_extend", alternate_override)
 
+-- extend, but only the first character of lhs_key is made uppercase and it
+-- always happens, even if the key is a table
 M.keymap.presets:Extend("extend", "goto_extend", {
   Lhs_key_func_force = true,
   Lhs_key_func = function(key) return string.gsub(key, "^%l", string.upper) end,
