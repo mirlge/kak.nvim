@@ -53,7 +53,7 @@ and this project adheres to [🗿 Epoch Semantic Versioning](https://antfu.me/po
 ### Fixed
 
 - A variable not defined called `main` was used in the WhichKey integration,
-  which has now been replaced with "which-key"
+  which has now been replaced with `"which-key"`
 
 ## [6.3.0] - 2025-01-16
 
