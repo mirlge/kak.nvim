@@ -26,6 +26,7 @@ function M.setup(opts)
       { "gc", "M" },
       { "gb", "L" },
     }, { presets = { "noselect", "goto_extend" }, countable = false })
+    vim.keymap.set({ "n", "x" }, "G", "", { desc = "Goto extend" })
 
     utils.keymap.set({ { "<A-j>", "J" } }, { presets = { "none" }, opts = { desc = "Join lines" } })
 
