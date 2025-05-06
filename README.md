@@ -107,6 +107,8 @@ require("kak").setup({
   (to Insert mode) on the corresponding end of the selection
 - `[pP]`: Paste at the corresponding end of the selection
 - `R`: Replace selection with yanked content
+- `<A-;>`: Goes to the other end of the selection
+- `[oO]`: Do the same thing as they do in Normal mode
 
 ## TODO
 
