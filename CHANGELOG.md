@@ -13,6 +13,7 @@ and this project adheres to [🗿 Epoch Semantic Versioning](https://antfu.me/po
 - Goto extend keybinds (like previous goto keybinds, but with the prefix `G`
   instead of `g` and it always extends the selection. It's also only
   `G[hlgetcbjk]` which are added)
+- Visual mode `<A-;>` keybind (works like Visual mode `[oO]` in default Neovim)
 
 ### Changed
 
@@ -23,6 +24,7 @@ and this project adheres to [🗿 Epoch Semantic Versioning](https://antfu.me/po
   there now are goto extend keybinds
 - Updated "Rebound keybinds" section in README.md
 - Removed Normal mode Neovim builtin keybind `G`
+- `[oO]` now work like they do in Normal mode
 
 ### Fixed
 
