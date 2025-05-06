@@ -185,6 +185,12 @@ M.keymap.presets = {
       Rhs_key_func = function(key) return M.keycode("<Esc>") .. "v" .. key end,
     },
   },
+
+  -- Doesn't set a keybind in Normal mode
+  nonormal = {
+    Modes = { "Visual_mode" },
+  },
+
   -- rhs_key works like normal
   none = {},
 }
