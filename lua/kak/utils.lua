@@ -25,7 +25,7 @@ local M = {
 ---@param opts { countable: boolean?, opts: table?, getcharstr: boolean?, presets: table? }?
 function M.keymap.set(keys, opts)
   local opts = opts or {}
-  local opts_new = vim.tbl_extend("force", M.keymap.defaults, opts or {})
+  local opts_new = vim.tbl_extend("force", M.keymap.defaults, opts)
   for _, preset in ipairs(opts_new.presets) do
     local keymap_preset = vim.tbl_extend("force", M.keymap.presets.Defaults, M.keymap.presets[preset])
     for _, mode in ipairs(keymap_preset.Modes) do
