@@ -97,8 +97,8 @@ require("kak").setup({
 - `G[tcb]`: \<key at the same place in `[HML]`>, but extend selection
 - `G[jk]`: Extend selection to buffer bottom/top
 - `<A-[oO]>`: Do the same as `[oO]`, except that they move the cursor to the
-  same position that it was in before they were executed, or, in Visual mode, reselect the
-  previous Visual mode selection
+  same position that it was in before they were executed, or, in Visual mode,
+  reselect the previous Visual mode selection
 
 ##### Normal mode
 
@@ -111,7 +111,8 @@ require("kak").setup({
 - `[pP]`: Paste at the corresponding end of the selection
 - `R`: Replace selection with yanked content
 - `<A-;>`: Goes to the other end of the selection
-- `[oO]`: Do the same thing as they do in Normal mode
+- `[oO]`: Do the same thing as they do in Normal mode, on their corresponding
+  end of the selection
 
 ## TODO
 
