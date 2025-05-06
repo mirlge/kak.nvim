@@ -22,6 +22,7 @@ and this project adheres to [🗿 Epoch Semantic Versioning](https://antfu.me/po
 - Normal goto keybinds now no longer extend the selection at all, for that
   there now are goto extend keybinds
 - Updated "Rebound keybinds" section in README.md
+- Removed Normal mode Neovim builtin keybind `G`
 
 ### Fixed
 
