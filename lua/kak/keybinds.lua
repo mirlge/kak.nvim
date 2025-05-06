@@ -53,8 +53,11 @@ function M.setup(opts)
       vim.keymap.set("x", "a", "<Esc>`>a")
     end
 
-    vim.keymap.set("x", "o", "<Esc>o")
-    vim.keymap.set("x", "O", "<Esc>O")
+    for _, key in ipairs({ "o", "O" }) do
+      vim.keymap.set("x", key, "<Esc>" .. key)
+      vim.keymap.set("n", utils.wrap_key(key), "<Esc>v<Esc>" .. key .. "<Esc>gv<Esc>")
+      vim.keymap.set("x", utils.wrap_key(key), "<Esc>" .. key .. "<Esc>gv")
+    end
     utils.keymap.set({ { "<A-;>", "o" } }, { presets = { "nonormal" } })
   end
 

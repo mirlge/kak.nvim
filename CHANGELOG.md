@@ -14,6 +14,9 @@ and this project adheres to [🗿 Epoch Semantic Versioning](https://antfu.me/po
   instead of `g` and it always extends the selection. It's also only
   `G[hlgetcbjk]` which are added)
 - Visual mode `<A-;>` keybind (works like Visual mode `[oO]` in default Neovim)
+- `<A-[oO]>` keybinds (do the same thing as `[oO]`, except that they move the
+  cursor to the same position that it was in before they were executed /
+  reselect the previous Visual mode selection)
 
 ### Changed
 

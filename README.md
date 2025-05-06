@@ -96,6 +96,9 @@ require("kak").setup({
 - `G[ge]`: Extend selection to buffer start/end
 - `G[tcb]`: \<key at the same place in `[HML]`>, but extend selection
 - `G[jk]`: Extend selection to buffer bottom/top
+- `<A-[oO]>`: Do the same as `[oO]`, except that they move the cursor to the
+  same position that it was in before they were executed, or, in Visual mode, reselect the
+  previous Visual mode selection
 
 ##### Normal mode
 
