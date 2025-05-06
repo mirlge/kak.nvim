@@ -24,6 +24,7 @@ local M = {
 ---@param keys string | (table | string)[] The base key(s) to use. If it's a table, all the keys inside that table will be used, and the tables inside it will be treated as { input_key, resulting_key } and therefore not perform Lhs_key_func or Rhs_key_func of the chosen preset on those keys.
 ---@param opts { countable: boolean?, opts: table?, getcharstr: boolean?, presets: table? }?
 function M.keymap.set(keys, opts)
+  local opts = opts or {}
   local opts_new = vim.tbl_extend("force", M.keymap.defaults, opts or {})
   for _, preset in ipairs(opts_new.presets) do
     local keymap_preset = vim.tbl_extend("force", M.keymap.presets.Defaults, M.keymap.presets[preset])

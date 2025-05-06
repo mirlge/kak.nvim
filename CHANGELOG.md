@@ -30,6 +30,7 @@ and this project adheres to [🗿 Epoch Semantic Versioning](https://antfu.me/po
   This bug is however only fixed if you have the experimental option
   `rebind_visual_aiAI` enabled.
 - If experimental option `rebind_visual_aiAI` was enabled but `full` option was disabled, Visual mode `[aiAI]` keys would still be rebound
+- It wasn't possible to provide nothing as `opts` to `utils.keymap.set`
 
 ## [6.4.0] - 2025-01-18
 
