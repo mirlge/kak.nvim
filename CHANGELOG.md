@@ -28,6 +28,8 @@ and this project adheres to [🗿 Epoch Semantic Versioning](https://antfu.me/po
 - Updated "Rebound keybinds" section in README.md
 - Removed Normal mode Neovim builtin keybind `G`
 - `[oO]` now work like they do in Normal mode
+- `<A-[hl]>` now always create a new selection instead of extending the current
+  selection
 
 ### Fixed
 

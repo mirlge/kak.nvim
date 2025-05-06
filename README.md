@@ -87,12 +87,13 @@ require("kak").setup({
 - `[wbeft]`: Create new selection with key
 - `<A-[wbe]>`: Extend selection with the key
 - `<A-j>`: Join lines
-- `<A-[hl]>`: Extend selection all the way to the corresponding end of the line
+- `<A-[hl]>`: Create new selection going all the way to the corresponding end
+  of the line
 - `g[hl]`: Go all the way to the corresponding end of the line
 - `g[ge]`: Jump to buffer start/end
 - `g[tcb]`: \<key at the same place in `[HML]`>, but exit Visual mode first
 - `g[jk]`: Jump to buffer bottom/top
-- `G[hl]`: Same as `<A-[hl]>`, currently
+- `G[hl]`: Extend selection all the way to the corresponding end of the line
 - `G[ge]`: Extend selection to buffer start/end
 - `G[tcb]`: \<key at the same place in `[HML]`>, but extend selection
 - `G[jk]`: Extend selection to buffer bottom/top

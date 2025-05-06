@@ -13,7 +13,7 @@ function M.setup(opts)
     utils.keymap.set(word, { presets = { "reselect", "extend", "alternate" } })
     utils.keymap.set({ "f", "t" }, { presets = { "reselect", "extend", "alternate_extend" }, getcharstr = true })
 
-    utils.keymap.set({ { "<A-h>", "0" }, { "<A-l>", "$" } }, { presets = { "extend" }, countable = false })
+    utils.keymap.set({ { "<A-h>", "0" }, { "<A-l>", "$" } }, { presets = { "reselect" }, countable = false })
     utils.keymap.set({ { "gh", "0" }, { "gl", "$" } },
       { presets = { "noselect", "goto_extend" }, countable = false })
     utils.keymap.set({
