@@ -138,7 +138,7 @@ M.keymap.presets = {
     },
   },
   -- exit Visual mode before performing the movement
-  noselect = {
+  deselect = {
     Visual_mode = {
       mode = "x",
       post_first_str_extra_str = M.keycode("<Esc>"),

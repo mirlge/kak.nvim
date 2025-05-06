@@ -9,13 +9,13 @@ function M.setup(opts)
     local movement = { "h", "j", "k", "l" }
     local word = { "w", "e", "b" }
 
-    utils.keymap.set(movement, { presets = { "noselect", "extend" } })
+    utils.keymap.set(movement, { presets = { "deselect", "extend" } })
     utils.keymap.set(word, { presets = { "reselect", "extend", "alternate" } })
     utils.keymap.set({ "f", "t" }, { presets = { "reselect", "extend", "alternate_extend" }, getcharstr = true })
 
     utils.keymap.set({ { "<A-h>", "0" }, { "<A-l>", "$" } }, { presets = { "reselect" }, countable = false })
     utils.keymap.set({ { "gh", "0" }, { "gl", "$" } },
-      { presets = { "noselect", "goto_extend" }, countable = false })
+      { presets = { "deselect", "goto_extend" }, countable = false })
     utils.keymap.set({
       { "gg", "gg0" },
       { "ge", "G$" },
@@ -25,7 +25,7 @@ function M.setup(opts)
       { "gt", "H" },
       { "gc", "M" },
       { "gb", "L" },
-    }, { presets = { "noselect", "goto_extend" }, countable = false })
+    }, { presets = { "deselect", "goto_extend" }, countable = false })
     vim.keymap.set({ "n", "x" }, "G", "", { desc = "Goto extend" })
 
     utils.keymap.set({ { "<A-j>", "J" } }, { presets = { "none" }, opts = { desc = "Join lines" } })
