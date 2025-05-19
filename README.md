@@ -120,7 +120,7 @@ require("kak").setup({
 - [X] Readd `<A-[ai]>` keybinds
   - [X] Readd only the `<A-[ai]>` keybinds
   - [X] Readd key rebind of Visual mode `[aiAI]` keybinds, but as experimental opt-in
-- [X] Add `G` keybinds (`g`, but extends selection), as experimental opt-in
+- [X] Add `G` keybinds (`g`, but extends selection)
   - [X] Make all `g` keybinds leave Visual mode before executing them
 
 ## Contributing
