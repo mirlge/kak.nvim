@@ -12,7 +12,7 @@ and this project adheres to [🗿 Epoch Semantic Versioning](https://antfu.me/po
   `kak.utils._keymap.set()` function
 - Goto extend keybinds (like previous goto keybinds, but with the prefix `G`
   instead of `g` and it always extends the selection. It's also only
-  `G[hlgetcbjk]` which are added)
+  `G[hlgetcbjk]` which are added), with WhichKey integration
 - Visual mode `<A-;>` keybind (works like Visual mode `[oO]` in default Neovim)
 - `<A-[oO]>` keybinds (do the same thing as `[oO]`, except that they move the
   cursor to the same position that it was in before they were executed /
