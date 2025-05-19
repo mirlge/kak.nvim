@@ -216,7 +216,10 @@ M.keymap.presets:Extend("extend", "alternate_extend", alternate_override)
 -- always happens, even if the key is a table
 M.keymap.presets:Extend("extend", "goto_extend", {
   Lhs_key_func_force = true,
-  Lhs_key_func = function(key) return string.gsub(key, "^%l", string.upper) end,
+  Lhs_key_func = function(key)
+    local result = string.gsub(key, "^%l", string.upper)
+    return result
+  end,
 })
 
 
