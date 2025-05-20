@@ -3,7 +3,7 @@
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [🗿 Epoch Semantic Versioning](https://antfu.me/posts/epoch-semver).
 
-## [Unreleased]
+## [7.0.0] - 2025-05-20
 
 ### Added
 
