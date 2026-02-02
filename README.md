@@ -37,6 +37,20 @@ Changes keybinds in Neovim to use the Kakoune workflow
 }
 ```
 
+#### From [the Radicle repo](https://app.radicle.xyz/nodes/iris.radicle.xyz/rad:z38WdNjkBrNQRPBXQ5DNvU6UfG8U5) (requires [Radicle](https://radicle.xyz) to be installed)
+
+```lua
+{
+  "kak.nvim",
+  url = "rad://z38WdNjkBrNQRPBXQ5DNvU6UfG8U5",
+  --version = "^7", -- if you don't want breaking changes
+  event = "VeryLazy", -- load after other plugins, to avoid conflicts
+  opts = {
+    -- your configuration here
+  },
+}
+```
+
 #### [WhichKey](https://github.com/folke/which-key.nvim) integration
 
 Add this to the plugin spec:
