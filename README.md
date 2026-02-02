@@ -51,14 +51,6 @@ Changes keybinds in Neovim to use the Kakoune workflow
 }
 ```
 
-#### [WhichKey](https://github.com/folke/which-key.nvim) integration
-
-Add this to the plugin spec:
-
-```lua
-dependencies = { "folke/which-key.nvim" },
-```
-
 ## Setup (if necessary)
 
 ```lua
@@ -66,6 +58,14 @@ dependencies = { "folke/which-key.nvim" },
 require("kak").setup({
   -- your configuration here
 })
+```
+
+## [WhichKey](https://github.com/folke/which-key.nvim) integration
+
+Add this to the plugin spec:
+
+```lua
+dependencies = { "folke/which-key.nvim" },
 ```
 
 ## Default options
