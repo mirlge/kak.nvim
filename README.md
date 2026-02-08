@@ -37,7 +37,7 @@ Changes keybinds in Neovim to use the Kakoune workflow
 }
 ```
 
-#### From [the Radicle repo](https://app.radicle.xyz/nodes/iris.radicle.xyz/rad:z38WdNjkBrNQRPBXQ5DNvU6UfG8U5) (requires [Radicle](https://radicle.xyz) to be installed)
+#### From [the Radicle repo](https://app.radicle.xyz/nodes/iris.radicle.xyz/rad:z38WdNjkBrNQRPBXQ5DNvU6UfG8U5) (requires the [Radicle](https://radicle.xyz) CLI to be installed)
 
 ```lua
 {
